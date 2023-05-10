@@ -1,0 +1,17 @@
+services:
+  rabbit-largest-mars-picture:
+    build:
+      context: .
+    ports:
+      - 8090:8080
+    depends_on:
+      - rabbit
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+      - 15672:15672
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
